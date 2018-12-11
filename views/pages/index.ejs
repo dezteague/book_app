@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Book App</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-        <!-- <p></p><a href="/hello">see list</p> -->
+  <head>
+    <link href="styles/reset.css" rel="stylesheet">
+    <link href="styles/base.css" rel="stylesheet">
+    <title>Book App</title>
+  </head>
+  <body>
+  	<h1>Best Books!</h1>
+      <form action="/searches" method="post">
+				<label>Enter a title or author
+					<input type="text" name="search-field">
+				</label>
+				
+        <label>Title
+					<input type="radio" name="searchby" value="intitle">
+				</label>
+
+				<label>Author
+						<input type="radio" name="searchby" value="inauthor">
+				</label>
+
+				<button type="submit">Search the Google Books API</button>
+      </form>
     </body>
 </html>
