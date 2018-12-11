@@ -3,6 +3,8 @@
 const express = require('express');
 const superagent = require('superagent');
 const app = express();
+// const cors = require('cors');
+// app.use(cors());
 
 require('dotenv').config();
 
@@ -13,8 +15,16 @@ app.use(express.static('./public'));
 
 app.set('view engine', 'ejs');
 
-app.get('/hello', (req, res) => {
+// app.get('/hello', (req, res) => {
+//   res.render('../views/pages/index');
+// });
+
+app.get('/', (req, res) => {
   res.render('../views/pages/index');
+});
+
+app.post('/searches', (req,res) => {
+  console.log('request body', req.body);
 });
 
 app.listen(PORT, () => {
