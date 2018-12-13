@@ -1,3 +1,7 @@
+DROP DATABASE book_app
+CREATE DATABASE book_app
+\c book_app
+
 CREATE TABLE books {
     id SERIAL PRIMARY KEY,
     author VARCHAR (255),
@@ -7,4 +11,3 @@ CREATE TABLE books {
     description TEXT,
     bookshelf VARCHAR (255),
 }
-

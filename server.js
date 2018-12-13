@@ -3,6 +3,7 @@
 //app dependencies
 const express = require('express');
 const superagent = require('superagent');
+const pg = require('pg');
 // const cors = require('cors');
 
 require('dotenv').config();
@@ -18,11 +19,10 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
 //database setup
-// const client = new Client(process.env.DATABASE_URL);
-
-// client.connect();
-// // error handler
-// client.on('error', err => console.error(err));
+const client = new Client(process.env.DATABASE_URL);
+client.connect();
+// error handler
+client.on('error', err => console.error(err));
 
 //set template
 app.set('view engine', 'ejs');
