@@ -36,17 +36,17 @@ app.post('/searches', getBook);
 //helper function
 function getBook(req, res) {
   const bookHandler = {
-    query: req.body.search_query,
-    queryType: req.body.title === 'on' ? 'intitle' : 'inauthor',
+    query: req.body.searchby[0],
+    queryType: req.body === 'on' ? 'intitle' : 'inauthor',
   };
-  console.log(req.body.search_query);
+
+
   //grab API data if the database is empty
   Book.fetch(bookHandler, res);
 }
 
 //book constructor function
 function Book(data) {
-  this.search_query = data.query;
   this.title = data.volumeInfo.title;
   this.author = data.volumeInfo.authors;
   this.description = data.volumeInfo.description;
